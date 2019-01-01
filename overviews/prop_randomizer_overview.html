@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Prop Randomizer overview </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Prop Randomizer overview ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="prop-randomizer-overview">Prop Randomizer overview</h1>
+
+<p><strong>Prop Randomizer</strong> позволяет делать пропсы более случайными с каждой генерацией.</p>
+<p><img src="..%5Cimages%5Cprop_randomizer_header.png" alt="Prop Randomizer Header"></p>
+<p><strong>Prop Randomizer</strong> используется в тех случаях, когда пропс состоит из нескольких дочерних частей, и вы хотите создать иллюзию того что этим объектом кто-то пользовался. Отличным примером является стол со стульями. В реальной жизни стулья всегда стоят неровно, иногда некоторых нехватает, и если вы хотите получить такой же эффект - используйте <strong>Prop Randomizer</strong>.</p>
+<h2 id="how-to-use-it">How to use it?!</h2>
+<p>Использование <strong>Prop Randomizer</strong> происходит автоматически во время генерации, однако для правильной работы его нужно настроить.</p>
+<h2 id="how-to-setup-it">How to setup it?</h2>
+<p>Для того чтобы добавить немного хаоса на проп, нужно отделить его главную часть от остольных частей, добавить на неё компонент Prop Randomizer и сделать эту главную часть родительским объектом. Остальные части пропа должны быть дочерними объектами и иметь компонент Sub Prop.</p>
+<p>Ниже показано, как это можно сделать на примере стола со стульями:</p>
+<p><img src="..%5Cimages%5Cprop_randomizer_and_sub_prop_base_setup.gif" alt="Prop Randomizer and Sub Prop base setup"></p>
+<blockquote>
+<p>Обратите внимание, что после установки суб пропсов необходимо их выделить и нажать кнопку <strong>Set current transform as default</strong>. После этого все суб пропы (в данном случае стулья) запишут свое нынешнее локальное положение и будут его использовать в дальнейшем при генерации.</p>
+</blockquote>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p>После установки пропса PropRandomizer отправляет дочерним объектам, обладающим компонентом SubProp, вызов Randomize() функции, после чего SubProp применяет случайный поворот и смещение положения в указанных в настройках граница, либо вовсе выключает объект, если того пожелает бог рандома.</p>
+<h2 id="debug">Debug</h2>
+<p>Debug панель позволяет проверить насколько правильно были настроены SubProps без необходимости генерировать дом. Эта панель очень похожа на панель генерации дома и работает схожим образом.</p>
+<p><img src="..%5Cimages%5Cprop_randomizer_debug.gif" alt="Prop Randomizer Debug"></p>
+<p><strong>Seed</strong> - хранит число, которое используется для генерации.</p>
+<p><strong>Randomize</strong> - эта кнопка запускает генерацию на основе записанного числа Seed.</p>
+<p><strong>Randomize with random SEED</strong> - эта кнопка запускает генерацию на основе случайного числа Seed и записывает сгенерированное число Seed в поле Seed.</p>
+<blockquote>
+<p>Обратите внимание, что если Sub Props не были настроены, стулья не будут двигаться.</p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

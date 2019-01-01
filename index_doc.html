@@ -1,0 +1,698 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quick start </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quick start ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="quick-start">Quick start</h2>
+
+<p>To try out the example house generation right away:</p>
+<ol>
+<li><p>Import the <strong>Pompei package</strong> into Unity.</p>
+</li>
+<li><p>Open the <strong>“Regular House”</strong> scene under Generator/Examples/Regular House.</p>
+</li>
+<li><p>Press <strong>play</strong>.</p>
+</li>
+</ol>
+<p>The scene is arranged as follows:</p>
+<ul>
+<li><p>The <strong>“House&quot;</strong> object is responsible for procedural generating of house</p>
+</li>
+<li><p>The <strong>“Example Generation UI”</strong> provides generator controlling in play mode</p>
+</li>
+<li><p>The <strong>“Main Camera”</strong> object is the game’s camera</p>
+</li>
+<li><p>The <strong>“Level”</strong> object contains all other level geometry and content</p>
+</li>
+</ul>
+<p>After pressing <strong>play</strong>, you'll see a generator control panel in top left corner, which you can use for generate a random house. If you'll press a <strong>&quot;Generate Random&quot; button</strong>, Pompei will make a seed from a current system time and will use it for make a random house. You'll also notice that new seed was write into <strong>&quot;Seed&quot; field</strong> below. You can reuse this seed later for make an absolute the same house. Do you played in minecraft before? Do you remember a SEED number which using in generating of world? It works absolute the same.
+<strong>&quot;Generate from seed&quot; button</strong> using for generate a house from your own seed number. You can use any number, just try :3
+And also here has a <strong>&quot;Hide Ceiling&quot; checkbox</strong>. Uncheck it and press some generate button if you want to see a ceiling in your new cozy house ^_~.</p>
+<h1 id="package-overview">Package Overview</h1>
+<h2 id="package-structure">Package structure</h2>
+<ul>
+<li><strong>Editor:</strong> This folder contains inspector scripts and graphics which provide controlling of generating.</li>
+<li><strong>Scripts:</strong> This folder contains the Pompei scripts.</li>
+<li><strong>Examples:</strong> This folder contains all the optional example content that is meant to demonstrate the usage of Pompei. This entire folder can be deleted if you don’t need it.</li>
+<li><strong>Materials:</strong> This folder contains materials.</li>
+<li><strong>Models:</strong> This folder contains models.</li>
+<li><strong>Prefabs:</strong> This folder contains prefabs.</li>
+<li><strong>Textures:</strong> This folder contains textures.
+​</li>
+</ul>
+<h2 id="scripts">Scripts</h2>
+<ul>
+<li><p><strong>Core Folder:</strong> this folder contains all internal functional of Pompei.</p>
+</li>
+<li>
+<ul>
+<li><strong>DataTypes folder:</strong> contains data classes.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Pipes folder:</strong> contains pipes which determines blueprint generation process.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>Buffer:</strong> uses for transfer some info between pipes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>DefineRooms:</strong> finds cells which can be combined into rooms and set RoomID to them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>IGeneratorPipe:</strong> an interface which determine how must be a pipe.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>MakeRoomsSmoother:</strong> finds alliased room borders and makes them more squarrel.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>MakeThinRoomCellsWider:</strong> finds a room cells which too thin for looks normal and makes them wider.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>PlaceColumns:</strong> places columns.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>PlaceExternalDoors:</strong> places external doors.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>PlaceInternalDoors:</strong> places internal doors.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>PlaceProps:</strong> get place requires from prop, finds correct place for prop and places them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>PlaceWalls:</strong> places walls on room borders.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>PlaceWindows:</strong> places windows.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>RemoveIsolatedRooms:</strong> finds rooms which are outside from a house and removes them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>RemoveIsolatedVoids:</strong> merges void cells with closest room.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>RemoveTooSmallRooms:</strong> merges too small rooms with closest room.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><strong>SetInteriors:</strong> analyzes rooms and set a correct interior to them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Blueprint:</strong> instance of this class contains an info for building a house.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>BlueprintAnalyze:</strong> uses for get an info from a blueprint.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>BlueprintCell:</strong>  the blueprint represent of HouseCell, which contains an info about walls, floor, ceiling and props.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Convert:</strong> contains some data convertation methods.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Interiors:</strong> contains info about current house interior.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>RND:</strong> uses for get some random data.</li>
+</ul>
+</li>
+<li><p><strong>Examples Folder:</strong> this folder contains scripts for examples. This entire folder can be deleted if you don’t need it.</p>
+</li>
+<li><p><strong>Scriptable Objects:</strong> this folder contains all scriptable objects which you can use for castomize generating process.</p>
+</li>
+<li>
+<ul>
+<li><strong>InteriorSO:</strong> contains interior info, like materials for walls, floor, ceiling, possoble propses etc.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Prop:</strong> contains a prop info, like link to prefab, place requirements etc...</li>
+</ul>
+</li>
+<li><p><strong>HouseBuilder:</strong> this is the base house building script which uses for start blueprint generation, building a house from blueprint and for customize generating pipeline.</p>
+</li>
+<li><p><strong>HouseCell:</strong> this is the base part of house, which contains walls, floor, ceiling and props.</p>
+</li>
+<li><p><strong>PropCastomizer:</strong> this is an optional component for prop prefab, which sends &quot;start castomize&quot; call of all child objects which contains SubProp component.</p>
+</li>
+<li><p><strong>SubProp:</strong> this is an optional component for some internal part of prop, which determines how must castomize the prop.</p>
+</li>
+<li><p><strong>Wall:</strong> this is a part of HouseCell, which contains all wall functional.</p>
+</li>
+</ul>
+<h1 id="how-to-use-this-package">How to use this package</h1>
+<h2 id="what-to-expect">What to expect?</h2>
+<p>Once you asked yourself a question: what if each game session will be unique? How can i do this? Are there any tools that allow me to create a unique world with a single click?
+The answer is yes, there is. And Pompei is one of them. Pompei is a tool that allows you to procedurally generate unique homes. One of the most important aspects of Pompei is flexibility, you can use any interior asset you like and integrate it into the generation system in a couple of minutes, you can use your own windows, walls, doors, any part of the house can be changed. Moreover, Pompei allows you to completely override the procedure for generating a house, but this will require some skills in programming from you.
+The main tenets of Pompei: simplicity and flexibility. I believe that simplicity is one of the most important properties of a good tool, so I placed great emphasis on a high-quality and convenient UI, which, meanwhile, is quite flexible.</p>
+<h2 id="how-does-it-work">How does it work?</h2>
+<p>Pampei разделяет генерацию дома на два этапа: создание чертежа и постройка дома по чертежу. Компонент HouseGenerator решает обе эти задачи. Для запуска генерации можно использовать кнопкиGenerateFromSEED и GenerateFromRandomSEED в инспекторе компонента, либо вызвав функцию Generate() или GenerateRandom(). После этого HouseGenerator запустит генерацию дома, состоящую из следующих шагов:</p>
+<ol>
+<li>Создание сетки ячеек по размеру, указанному в инспекторе.</li>
+<li>Создание Random объекта на основе seed, который будет использоваться для получения случайных данных для генерации.</li>
+<li>Создание Pipeline на основе данных из инспектора.</li>
+<li>Создание чертежа, которое также состоит из следующих шагов:
+4.1. Создание случайной булевой сетки при помощи Random объекта.
+4.2. Обработка этой сетки при помощи Pipeline.
+4.3. Получившийся результат проверяется на соответствие требованиям к дому, если требования не удовлетворены, генерация чертежа запускается заново.</li>
+<li>Создание дома в Unity на основе чертежа.</li>
+</ol>
+<p>Наиболее интересной особенностью Pompei является тот факт, что процесс генерации полностью детерминирован, и вы можете использовать Seed для передачи сгенерированного дома между клиентами в мультиплеере или для сохранения дома при сохранении игры.</p>
+<h1 id="example-regular-house-overview">Example Regular House Overview</h1>
+<p>This section will give a summary of how several components work together in order to generate the example house in the “RegularHouse” scene. Open the scene and follow along with this section.</p>
+<p><strong>ExampleSceneUI:</strong> shows how you can use a house generator. This object contains UGUI next sub objects:</p>
+<ul>
+<li><p><strong>GenerateRandom:</strong> this button sends a press call to <em>ExampleSceneUI</em>. If you prees this button in game mode, <em>ExampleSceneUI</em> will call a <em>GenerateRandom() function</em> from <em>HouseGenerator</em>, after what <em>HouseGenerator</em> will make a new random house.</p>
+</li>
+<li><p><strong>GenerateFromSeed:</strong> this button works like a <em>GenerateRandom button</em>, but instead of <em>GenerateRandom() function</em> it calls a <em>GenerateFromSeed() function</em>, and seed will get from a <em>Seed UI text field</em>.</p>
+</li>
+<li><p><strong>Seed:</strong> this is a UI text field, which contains a seed number. If you'll press a <em>GenerateRandom button</em>, HouseGenerator also will generate a seed number, and <em>ExampleSceneUI</em> will get this number and write it in this field, but if you'll press a <em>GenerateFromSeed button</em>, <em>HouseGenerator</em> will use a seed number from this field and will use it for generate a house.</p>
+</li>
+<li><p><strong>HideCeiling:</strong> This is checkbox, which allows to hide a ceiling for generated house.</p>
+</li>
+</ul>
+<h1 id="how-to-setup"><strong>How to setup?</strong></h1>
+<p>Настройка плагина делится на четыре этапа:</p>
+<ol>
+<li>Настройка базовой ячейки дома.</li>
+<li>Настройка пропсов.</li>
+<li>Настройка интерьеров.</li>
+<li>Настройка пайплайна генерации.</li>
+</ol>
+<h1 id="cell-overview"><strong>Cell Overview</strong></h1>
+<p><img src="images%5Ccell_header.png" alt="2018-12-08_19-36-14"></p>
+<p>Cell это базовый компонент дома, который ответственнен за постройку стен, пола, потолка и установку мебели внутри своих границ.</p>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p>После генерации чертежа для дома, HouseGenerator создаёт сетку из ячеек внутри своей иерархии и передаёт каждой ячейке информацию для строительства. На основе полученной информации ячейка устанавливает стены, пол, потолок и мебель. Данные о мебели и материалах берутся из присвоенного ячейке интерьера.</p>
+<h2 id="how-to-use-it"><strong>How to use it?</strong></h2>
+<p>Использование ячейки происходит автоматически при генерации дома, однако во избежание ошибок ячейка должна быть правильно сконфигурирована.</p>
+<h2 id="how-to-configure-it"><strong>How to configure it?</strong></h2>
+<p>Установка стен, пола, колонн и потолка производится путём включения и выключения соответствующих объектов. Поэтому для правильной работы необходимо указать ссылки на пол, потолок, стены и колонны внутри иерархии ячейки. Делается это в пункте Gameobject Links</p>
+<p><img src="images%5Ccell_configure.png" alt="2018-12-08_19-52-55"></p>
+<blockquote>
+<p>Обратите внимание, что стены должны иметь компонент Wall, а также не забудьте указать ссылку на Props Container, это пустой объект, в который будет инстанциироваться экземпляр префаба пропса.</p>
+</blockquote>
+<p>Для указания ссылки на объект просто перетащите его.</p>
+<p><img src="images%5Cgameobject_linking.gif" alt="Gameobject Linking"></p>
+<h2 id="material-ids">Material ID's</h2>
+<p>Этот этап опционален. Material ID это id материала, который будет перезаписан при генерации. Информация о новом материале берётся из интерьера, приписанного к данной ячейке.</p>
+<blockquote>
+<p>Информацию о том, какой материал был приписан данной ячейке, вы можете узнать во вкладке Debug Info.</p>
+</blockquote>
+<p><img src="images%5Cmaterial_id.png" alt="2018-12-08_20-46-57"></p>
+<p><img src="images%5Cmaterial_id_2.png" alt="2018-12-08_20-53-00"></p>
+<h2 id="debug-info">Debug Info</h2>
+<p>Эта панель предоставляет информацию для отладки.</p>
+<p><img src="images%5Ccell_debug.png" alt="2018-12-08_21-08-57"></p>
+<ul>
+<li><strong>Coordinates:</strong> координаты сгенерированной ячейки по осям I и J.</li>
+<li><strong>Room id:</strong> id комнаты, к которой принадлежит ячейка.</li>
+<li><strong>Interior id:</strong> id присвоенного комнате интерьера.</li>
+<li><strong>Interior:</strong> ссылка на интерьер.</li>
+<li><strong>Props:</strong> ссылка на префаб пропса, который сгенерировался на ячейке.</li>
+</ul>
+<h1 id="wall-overview">Wall overview</h1>
+<p>Компонент стен обеспечивает установку стен. Информация о необходимой стене берётся из Blueprint.</p>
+<h2 id="how-to-use-it-1">How to use it?</h2>
+<p>Использование происходит автоматически во время постройки дома.</p>
+<p>Настройка стены очень похожа на настройку ячейки, вам также необходимо настроить ссылки на разные вариации стены (просто стена или стена с оконным проёмом например), и указать ID для материалов.</p>
+<p>Настройка ссылок на Game Objects выглядит так:</p>
+<p><img src="images%5Cgameobject_linking_2.gif" alt="Gameobject Linking 2"></p>
+<p>Пример настройки Material ID:</p>
+<p><img src="images%5Chow_to_setup_material_id.gif" alt="How to setup Material ID"></p>
+<h2 id="how-does-it-works-1">How does it works?</h2>
+<p>Во время строительства ячейка передаёт информацию, необходимую для строительства, стенам, а те, в свою очередь, на основе этой информации строят стены.</p>
+<h1 id="prop-randomizer-overview">Prop Randomizer overview</h1>
+<p><strong>Prop Randomizer</strong> позволяет делать пропсы более случайными с каждой генерацией.</p>
+<p><img src="images%5Cprop_randomizer_header.png" alt="Prop Randomizer Header"></p>
+<p><strong>Prop Randomizer</strong> используется в тех случаях, когда пропс состоит из нескольких дочерних частей, и вы хотите создать иллюзию того что этим объектом кто-то пользовался. Отличным примером является стол со стульями. В реальной жизни стулья всегда стоят неровно, иногда некоторых нехватает, и если вы хотите получить такой же эффект - используйте <strong>Prop Randomizer</strong>.</p>
+<h2 id="how-to-use-it-2">How to use it?!</h2>
+<p>Использование <strong>Prop Randomizer</strong> происходит автоматически во время генерации, однако для правильной работы его нужно настроить.</p>
+<h2 id="how-to-setup-it">How to setup it?</h2>
+<p>Для того чтобы добавить немного хаоса на проп, нужно отделить его главную часть от остольных частей, добавить на неё компонент Prop Randomizer и сделать эту главную часть родительским объектом. Остальные части пропа должны быть дочерними объектами и иметь компонент Sub Prop.</p>
+<p>Ниже показано, как это можно сделать на примере стола со стульями:</p>
+<p><img src="images%5Cprop_randomizer_and_sub_prop_base_setup.gif" alt="Prop Randomizer and Sub Prop base setup"></p>
+<blockquote>
+<p>Обратите внимание, что после установки суб пропсов необходимо их выделить и нажать кнопку <strong>Set current transform as default</strong>. После этого все суб пропы (в данном случае стулья) запишут свое нынешнее локальное положение и будут его использовать в дальнейшем при генерации.</p>
+</blockquote>
+<h2 id="how-does-it-works-2">How does it works?</h2>
+<p>После установки пропса PropRandomizer отправляет дочерним объектам, обладающим компонентом SubProp, вызов Randomize() функции, после чего SubProp применяет случайный поворот и смещение положения в указанных в настройках граница, либо вовсе выключает объект, если того пожелает бог рандома.</p>
+<h2 id="debug">Debug</h2>
+<p>Debug панель позволяет проверить насколько правильно были настроены SubProps без необходимости генерировать дом. Эта панель очень похожа на панель генерации дома и работает схожим образом.</p>
+<p><img src="images%5Cprop_randomizer_debug.gif" alt="Prop Randomizer Debug"></p>
+<p><strong>Seed</strong> - хранит число, которое используется для генерации.</p>
+<p><strong>Randomize</strong> - эта кнопка запускает генерацию на основе записанного числа Seed.</p>
+<p><strong>Randomize with random SEED</strong> - эта кнопка запускает генерацию на основе случайного числа Seed и записывает сгенерированное число Seed в поле Seed.</p>
+<blockquote>
+<p>Обратите внимание, что если Sub Props не были настроены, стулья не будут двигаться.</p>
+</blockquote>
+<h1 id="sub-prop-overview">Sub Prop overview</h1>
+<p><strong>Sub Prop</strong> компонент позволяет поворачивать, двигать или выключать объект случайным образом.</p>
+<p><img src="images%5Csub_prop_header.png" alt="Sub Prop Header"></p>
+<h2 id="how-to-use-it-3">How to use it?</h2>
+<p>Компонент используется автоматически, однако для работы на родительском объекте должен быть компонент PropRandomizer.</p>
+<h2 id="how-to-setup-it-1">How to setup it?</h2>
+<p>Для настройки Sub Prop используются следующие панели:</p>
+<h3 id="general">General</h3>
+<p>Основные настройки.</p>
+<p><strong>Chance to place</strong> - процент, определяющий вероятность включения объекта.</p>
+<p><img src="images%5Csub_prop_chance_to_place.gif" alt="Sub Prop Chance to place"></p>
+<h3 id="default-transform">Default Transform</h3>
+<p>Эта настройка указывает начальное положение и начальный поворот объекта. Смещение объекта происходит относительно этого положения.</p>
+<p><strong>Set current transform as default</strong> button - записывает текущее положение и поворот объекта в соответствующие поля.</p>
+<p><img src="images%5Csub_prop_set_default_transform.gif" alt="Sub Prop Set default transform"></p>
+<blockquote>
+<p>Обратите внимание, что если переключатель <strong>Add random position offset</strong> не включен, то <strong>Default Position</strong> не будет использован, и если <strong>Add random rotation offset</strong> также не будет включен, <strong>Default Rotation</strong> также не будет использован.</p>
+</blockquote>
+<h3 id="offset">Offset</h3>
+<p>Эта настройка позволяет указать пределы случайного смещения объекта.</p>
+<p><strong>Add random position offset:</strong> добавляет случайное смещение по осям X и Y. При генерации величина смещения выбирается случайно в промежутке между минимальным и максимальным значениями.</p>
+<ul>
+<li><strong>Min X pos offset:</strong> минимальная величина смещения по оси X.</li>
+<li><strong>Max X pos offset:</strong> максимальная величина смещения по оси X.</li>
+<li><strong>Min Y pos offset:</strong> минимальная величина смещения по оси Y.</li>
+<li><strong>Max Y pos offset:</strong> максимальная величина смещения по оси Y.</li>
+</ul>
+<blockquote>
+<p>Смещение позиции указывается в сантиметрах.</p>
+</blockquote>
+<p><img src="images%5Csub_prop_add_random_pos_offset.gif" alt="Sub Prop add random pos offset"></p>
+<p><strong>Add random rotation offset:</strong> добавляет случайный поворот. При генерации величина поворота выбирается случайно в промежутке между минимальным и максимальным значениями.</p>
+<ul>
+<li><p><strong>Min rotation offset:</strong> минимальная величина поворота.</p>
+</li>
+<li><p><strong>Max rotation offset:</strong> максимальная величина поворота.</p>
+</li>
+</ul>
+<blockquote>
+<p>Поворот указывается в градусах.</p>
+</blockquote>
+<p><img src="images%5Csub_prop_add_random_rot.gif" alt="Sub Prop add random rot"></p>
+<h2 id="how-does-it-works-3">How does it works?</h2>
+<p>После вызова функции Randomize() вычисляет и применяет случайное смещение положения и случайный поворот в указанных в настройках пределах.</p>
+<h1 id="house-generator">House Generator</h1>
+<p>Это главный компонент, ответственный за генерацию дома.</p>
+<p><img src="images%5Chouse_generator_header.png" alt="House Generator header"></p>
+<h2 id="how-to-use-it-4">How to use it?</h2>
+<p>Есть несколько способов использовать House Generator:</p>
+<ol>
+<li><p>При помощи панели Generate. Эта панель включает поле Seed, кнопку Generate from SEED и кнопку Generate from random SEED. Нажатие одной из кнопок запустит генерацию дома. House Generator использует для генерации специальное число, называемое Seed.</p>
+<blockquote>
+<p>A <strong>random seed</strong> (or <strong>seed state</strong>, or just <strong>seed</strong>) is a <a href="https://en.wikipedia.org/wiki/Number">number</a> (or <a href="https://en.wikipedia.org/wiki/Array_data_structure">vector</a>) used to <a href="https://en.wikipedia.org/wiki/Initial_condition">initialize</a> a <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number generator</a>.</p>
+<p>For a seed to be used in a pseudorandom number generator, it does not need to be random. Because of the nature of number generating algorithms, so long as the original seed is ignored, the rest of the values that the algorithm generates will follow <a href="https://en.wikipedia.org/wiki/Probability_distribution">probability distribution</a> in a pseudorandom manner.</p>
+<p>Wikipedia</p>
+</blockquote>
+<p>Так как используя одно и то же число seed мы всегда будем получать один и тот же результат, существует кнопка Generate from random SEED, которая перед запуском генерации дома генерирует псевдослучайное число seed на основе системного времени.</p>
+<blockquote>
+<p>Также крайне полезным свойством seed является тот факт, что вы можете использовать его для хранения и передачи дома. Это может быть полезно в мультиплеерных играх, т.к. для того чтобы передать клиенту сгенерированный на сервере дом вам достаточно лишь передать число seed, а клиент уже сам сгенерирует на его основе абсолютно аналогичный дом.</p>
+</blockquote>
+<p><img src="images%5Chouse_generator_generate_from_seed.gif" alt="House Generator generate from Seed"></p>
+<p><img src="images%5Chouse_generator_generate_from_random_seed.gif" alt="House Generator generate from Random Seed"></p>
+</li>
+<li><p>Вызвав на компоненте House Generator функцию <strong>Generate()</strong>, <strong>Generate(int seed)</strong> или <strong>GenerateWithRandomSeed()</strong>. Работает также как панель Generate.</p>
+<pre><code class="lang-c#">public class ExampleSceneUI : MonoBehaviour
+{
+    public InputField     seed;
+    public HouseGenerator houseBuilder;
+    public Toggle         hideCeiling;
+
+    private void Start()
+    {
+        hideCeiling.isOn = houseBuilder.hideCeiling;
+        hideCeiling.onValueChanged.AddListener(delegate(bool hide) { houseBuilder.hideCeiling = hide; });
+    }
+
+    public void GenerateRandom()
+    {
+        houseBuilder.GenerateWithRandomSeed();
+        seed.text = houseBuilder.seed.ToString();
+    }
+
+    public void GenerateFromSeed()
+    {
+        int.TryParse(seed.text, out houseBuilder.seed);
+        houseBuilder.Generate();
+    }
+}
+</code></pre>
+</li>
+<li><p>При помощи панели Example Generator UI.</p>
+<p><img src="images%5Chouse_generator_game_ui.gif" alt="House Generator generate game example ui"></p>
+</li>
+</ol>
+<h2 id="how-to-setup-it-2">How to setup it?</h2>
+<p>Для настройки генерации используются следующие панели:</p>
+<h3 id="pipeline">Pipeline</h3>
+<p>Эта панель содержит перечень труб, используемых для обработки чертежа дома. Порядок труб имеет значение. При помощи галочки справа вы можете включать или выключать трубы по желанию. Также вы можете добавлять новые трубы, убрать уже имеющиеся или написать свои собственные. Подробнее о трубах рассказано в секции Pipelines.</p>
+<p><img src="images%5Chouse_generator_pipes_demonstration.gif" alt="House Generator pipes demonstration"></p>
+<h3 id="general-settings">General Settings</h3>
+<p><img src="images%5Chouse_generator_general_settings.png" alt="HouseGenerator General settings"></p>
+<p>Здесь содержатся основные настройки HouseGenerator:</p>
+<ol>
+<li><p><strong>Поле Cell Prefab</strong> - содержит префаб базовой ячейки дома. О том, что такое базовая ячейка и как её настроить написано в секции Cell Overview.</p>
+</li>
+<li><p><strong>Side Size</strong> - длина стороны сетки ячеек. Больше длина - больше площадь дома.</p>
+</li>
+<li><p><strong>Randomizer</strong> - влияет на Raw Blueprint, чем больше число, тем больше вероятность, что на месте ячейки будет сгенерирован пол. Если хотите нагляднее увидеть как это работает, выключите все Pipes и сгенерируйте пару домов, используя разные значения Randomizer.</p>
+</li>
+<li><p><strong>Hide Ceiling</strong> - указывает стоит ли скрыть крышу при генерации дома.</p>
+<p><img src="images%5Chouse_generator_general_settings.gif" alt="House Generator general settings"></p>
+</li>
+</ol>
+<h3 id="house-requirements">House Requirements</h3>
+<p><img src="images%5Chouse_generator_house_requirements.png" alt="House Generator house requirements"></p>
+<p>Здесь описаны требования к сгенерированному дому. Если требования не будут удовлетворены, дом будет генерироваться заново до тех пор, пока не будет получен удовлетворительный результат, или не будет превышен лимит на регенерацию.</p>
+<ol>
+<li><strong>Min Room Count</strong> - минимальное колличество комнат в сгенерированном доме.</li>
+<li><strong>Max Generate Retry</strong> - лимит попыток заново сгенерировать дом.</li>
+</ol>
+<h3 id="interiors">Interiors</h3>
+<p><img src="images%5Chouse_generator_interiors.png" alt="House Generator interiors"></p>
+<p>Содержит перечень интерьеров и дополнительные к ним настройки.</p>
+<ol>
+<li><strong>Faсade Material</strong> - материал для наружной стороны дома.</li>
+<li><strong>Facade Column Material</strong> - материал для колонн, которые находятся на наружной стороне дома.</li>
+<li><strong>Default Interior</strong> -  этот интерьер будет выбран, если другие не подошли.</li>
+<li><strong>Interiors</strong> - перечень интерьеров, которые будут использоваться для генерации дома. Порядок интерьеров имеет значение, если есть два интерьера с одинаковыми требованиями к комнате, то будет применён первый подошедший интерьер, если у него не исчерпан лимит использований. Подробнее об интерьерах описано в секции Interiors Overview.</li>
+</ol>
+<h2 id="how-does-it-works-4">How does it works?</h2>
+<p>После вызова одной из функций Generate, HouseGenerator берёт seed число и на его основе создаёт Raw Blueprint. Raw Blueprint это сетка из булевых переменных, которые указывают на то должен ли на месте ячейки быть пол или там должна быть пустота. После этого получившийся Raw Blueprint отправляется на обработку в Pipeline, где определяются комнаты, выстраивается более реалистичная геометрия комнат, устанавливается пол, стены, окна, мебель, подбирается подходящий интерьер итд, после чего чертёж дома проверяется на соответствия требованиям, указанным в House Requirements. Если требования не удовлетворены, чертёж дома генерируется заново до тех пор, пока не будет получен требуемый результат, или не будет исчерпан лимит попыток. Далее на основе полученно чертежа строится дом.</p>
+<h1 id="interiors-overview">Interiors overview</h1>
+<p>Interior это scriptable object, используемый для настройки интерьеров каждой комнаты.</p>
+<p><img src="images%5Cinterior_header.png" alt="Interior header"></p>
+<h2 id="how-to-use-it-5">How to use it?</h2>
+<p>Интерьер используется автоматически при генерации дома. Чтобы включить интерьер в список интерьеров, используемых для генерации, добавьте его в список интерьеров в House Generator.</p>
+<h2 id="how-to-setup-it-3">How to setup it?</h2>
+<p>Для настройки интерьера используются панели Requirements и Parameters:</p>
+<h3 id="requirements">Requirements</h3>
+<p><img src="images%5Cinterior_requirements.png" alt="Interior requirements"></p>
+<p>Здесь описаны требования к комнате. Если комната удовлетворяет требованиям, к ней будет применён этот интерьер.</p>
+<p><strong>Min Size Of Room:</strong> если количество ячеек в комнате меньше этого числа, к комнате не будет применён этот интерьер.</p>
+<p><strong>Max Size Of Room:</strong> если количество ячеек в комнате больше этого числа, к комнате не будет применён этот интерьер.</p>
+<p><strong>Max Count Of Doors:</strong> если дверей в комнате больше этого числа, то к комнате не будет применён этот интерьер. Это поле очень полезно для интерьеров маленьких комнат, таких как туалеты или чуланы.</p>
+<h3 id="parameters">Parameters</h3>
+<p><img src="images%5Cinterior_parameters.png" alt="Interior parameters"></p>
+<p>Здесь содержится описание интерьера.</p>
+<p><strong>Place only once:</strong> если true, то этот интерьер будет использован всего один раз на весь дом. <em><strong>WIP</strong></em></p>
+<p><strong>Material For Floor:</strong> этот материал будет нанесён на пол в комнате к которой применён этот интерьер.</p>
+<p><strong>Material For Walls:</strong> этот материал будет нанесён на стены.</p>
+<p><strong>Material For Columns:</strong> этот материал будет нанесён на колонны.</p>
+<p><strong>Windows Rate:</strong> промежуток между окнами в доме. 0 - окон нет, 1 - вся стена покрыта окнами, 2 - промежуток между окнами равен одной ячейке итд.</p>
+<p><strong>Props:</strong> список пропсов, которые могут находиться в этом интерьере. Справа от пропса указано максимальное колличество экземпляров пропса в одной комнате.</p>
+<h2 id="how-does-it-works-5">How does it works?</h2>
+<p>Во время генерации Place Interior pipe анализирует комнаты и передаёт информацию интерьеру, для того чтобы он определил, подходит ли ему комната или нет. Если комната подходит, то интерьер применяется.</p>
+<blockquote>
+<p>Т.к. интерьер записывает информацию об окнах, Place Windows pipe должен находиться после Place Interiors pipe.</p>
+</blockquote>
+<h1 id="prop">Prop</h1>
+<p>Этот scriptable object обеспечивает создание объектов мебели во время генерации дома.</p>
+<p>Он содержит информацию об типе пропа, ссылку на префаб, данные об положении внутри ячейки и список требований к пространству вокруг ячейки.</p>
+<p><img src="images%5Cprop_header.png" alt="Prop header"></p>
+<h2 id="how-to-use-it-6">How to use it?</h2>
+<p>Использование пропсов происходит автоматически при генерации дома. Если вы хотите добавить этот пропс в процедуру генерации дома, нужно добавить ссылку на этот пропс в список пропсов в интерьере, для которого этот пропс лучше всего подходит. Например, унитаз подходит только для туалета, но стол можно добавить в интерьер как кухни, так и гостинной.</p>
+<h2 id="how-to-setup-it-4">How to setup it?</h2>
+<p>Для настройки пропа используются следующие панели:</p>
+<h3 id="general-1">General</h3>
+<h3 id="prop-general"><img src="images%5Cprop_general.png" alt="Prop general"></h3>
+<p><strong>Type:</strong> тип пропса. Используется для того чтобы помочь пропсам находить рядом пропсы нужного им типа. Если ваш пропс не соответствует ни одному существующему типу, вы можете добавить свой собственный в <strong>PropsType.cs</strong>, который находится в директории <em>...Assets\Generator\Scripts\Core\DataTypes\Enums</em></p>
+<pre><code class="lang-c#">namespace Generator.Scripts.Core.DataTypes.Enums
+{   ///////////////////////////////////////////////////////////////////////////////////////
+    /// &lt;summary&gt;  The type of props  &lt;/summary&gt;       	////////////////////////////////////////////////////////////////////////////////////
+    [Serializable]
+    public enum PropsType
+    {
+        None , // Custom name for &quot;Nothing&quot; option
+        Chair          = 1 &lt;&lt; 0 ,
+        Sofa           = 1 &lt;&lt; 1,
+        Table          = 1 &lt;&lt; 2,
+        Toilet         = 1 &lt;&lt; 3,
+        Fridge         = 1 &lt;&lt; 4,
+        KitchenWall    = 1 &lt;&lt; 5,
+        Chandelier     = 1 &lt;&lt; 6,
+        Stove          = 1 &lt;&lt; 7,
+        Bed            = 1 &lt;&lt; 8,
+        Cupboard       = 1 &lt;&lt; 9,
+        Nightstand     = 1 &lt;&lt; 10,
+        SofaCorner     = 1 &lt;&lt; 11,
+        MedicineChest  = 1 &lt;&lt; 12,
+        ShowerBath     = 1 &lt;&lt; 13,
+        WashBasin      = 1 &lt;&lt; 14
+    }
+}
+</code></pre>
+<p><strong>Prefab:</strong> ссылка на префаб пропса, который будет инстанциирован.</p>
+<h3 id="origin-position">Origin Position</h3>
+<p>При генерации дома пропсы будут инстанциированы внутри Cell -&gt; PropsContainer с локальной позицией и локальным поворотом, указанными в этой панели. Далее проп доворачивается в ту сторону, которая указана в поле <strong>Prop Direction</strong> в панели <strong>Place Requirements</strong>. Если проп при инстанциировании повернут в неправильную сторону, попробуйте изменить значения поворота в этой панели.</p>
+<p><img src="images%5Cprop_origin_position_header.png" alt="Prop origin position header"></p>
+<p>Для удобства настройки поворота здесь также находится поле <strong>Target</strong> и кнопка <strong>Clone Position Info</strong>. Предполагается, что вы поместитье экземпляр пропс в это поле, после чего поместите этот проп в <strong>Props Container</strong> внутри ячейки, и будете поворачивать проп до тех пор, пока не получите удовлетворительный результат. Пример данной манипуляции показан ниже.</p>
+<p><img src="images%5Cprop_origin_position.gif" alt="Prop Origin Position"></p>
+<h3 id="place-requirements">Place Requirements</h3>
+<p>Эта панель содержит информацию о том, каким должно быть пространство вокруг пропа.</p>
+<p><img src="images%5Cpossible_places_header.png" alt="Possible places header"></p>
+<p><strong>Possible places for placing props:</strong>  Это список, содержащий описания того, каким может быть пространство вокруг пропа. Если пространство вокруг пропа соотвуетствует одному из описаний, проп будет инстанциирован. Для добавления нового описания нажмите + в правом нижнем углу. Также вы можете скопировать уже существующее описание. Для настройки описания просто нажмите на него, и снизу появится панель настройки.</p>
+<p><img src="images%5Crequirement_settings.png" alt="Requirement settings"></p>
+<p><img src="images%5Crequirements_ingame.png" alt="Requirements ingame"></p>
+<p>Фактически эта панель схематично отображает то, каким должно быть пространство вокруг пропса.
+На изображении выше вы можете видеть как выглядит схематичное описание пространства и его реальное отображение.</p>
+<p>Для настройки описания пространства вокруг пропса просто нажмите на ячейку и используйте панель настройки ячейки, показанную ниже.</p>
+<p>Эта панель состоит из следующих элементов:</p>
+<p><img src="images%5Ccell_state.png" alt="Cell State"></p>
+<ul>
+<li><p><strong>State:</strong> состояние ячейки. Возможные состояния:</p>
+<ul>
+<li><p><strong>Any:</strong>  означает, что данная ячейка может иметь любое состояние и не будет проверяться при 	генерации.</p>
+</li>
+<li><p><strong>Floor:</strong> означает, что данная ячейка принадлежит любой комнате и может иметь любой проп либо не иметь его вовсе.</p>
+</li>
+<li><p><strong>Another Prop:</strong> означает, что данная ячейка должна иметь один из указанных пропов.</p>
+<blockquote>
+<p>При выборе состояния <strong>Another Prop</strong> вам будет доступна настройка <strong>Possible Props</strong>, в которой вы можете указать, какие виды пропов могут быть на этом месте.</p>
+</blockquote>
+</li>
+<li><p><strong>Prop Zone:</strong> эта ячейка перекрывается current пропом.</p>
+<blockquote>
+<p>При выборе состояния <strong>Prop Zone</strong>, или если вы выбрали центральную ячейку, вам будет доступна настройка <strong>Prop Direction</strong>, которая указывает, в каком направлении должен быть повернут проп после интсанциирования.</p>
+</blockquote>
+</li>
+<li><p><strong>Outside Of The Room:</strong> эта ячейка находится за пределами комнаты, она может быть как частью другой комнаты, так и вовсе быть за пределами дома.</p>
+</li>
+</ul>
+<p>При выборе любого состояния, отличного от Prop, открывается панель настройки стен.</p>
+</li>
+</ul>
+<p><img src="images%5Ccell_walls.png" alt="Cell walls"></p>
+<p>Эта панель содержит перечень стен, которые могут быть вокруг ячейки.</p>
+<p>Стена может быть следующих видов:</p>
+<ul>
+<li><strong>Nothing:</strong> означает, что на этом месте не должно быть стены</li>
+<li><strong>Any:</strong> озачает, что эта стена может иметь любое состояние, включая <strong>Nothing</strong>, следовательно она не проверяется при генерации.</li>
+<li><strong>Wall:</strong> это просто стена.</li>
+<li><strong>Door:</strong> просто дверь.</li>
+<li><strong>Window:</strong> просто окно.</li>
+</ul>
+<blockquote>
+<p>Обратите внимание, что вы можете комбинировать сразу несколько видов стен!</p>
+</blockquote>
+<p>​</p>
+<h2 id="example">Example</h2>
+<p>Пример ниже показывает, как изменить требования к ячейке так, чтобы кухонный шкаф не устанавливался там, где есть двери справа и слева.</p>
+<p><img src="images%5Cprop_place_requirements_example.gif" alt="Prop Place Requirements example"></p>
+<h2 id="how-does-it-works-6">How does it works?</h2>
+<p>Установкой пропсов управляет Place Props pipe, во время генерации он обращается к интерьерам, указанным в HouseGenerator, после чего интерьеры вызывают во всех доступных им пропсах функцию TryToPlace(Blueprint blueprint, int roomId), проп ищет внутри blueprint все ячейки с указанным roomId, и если пространство вокруг ячейки соответствует требованиям, к этой ячейке приписывается этот проп. Во время постройки дома HouseGenerator просто считывает из blueprint cell данные о пропе и инстанциирует его.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Quick start </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Quick start ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="quick-start">Quick start</h1>
+
+<p>To try out the example house generation right away:</p>
+<ol>
+<li><p>Import the <strong>Cozy House package</strong> into Unity.</p>
+</li>
+<li><p>Open the <strong>“Regular House”</strong> scene under Generator/Examples/Regular House.</p>
+</li>
+<li><p>Press <strong>play</strong>.</p>
+</li>
+</ol>
+<p>The scene is arranged as follows:</p>
+<ul>
+<li><p>The <strong>“House&quot;</strong> object is responsible for procedural generating of house</p>
+</li>
+<li><p>The <strong>“Example Generation UI”</strong> provides generator controlling in play mode</p>
+</li>
+<li><p>The <strong>“Main Camera”</strong> object is the game’s camera</p>
+</li>
+<li><p>The <strong>“Level”</strong> object contains all other level geometry and content</p>
+</li>
+</ul>
+<p>After pressing <strong>play</strong>, you'll see a generator control panel in top left corner, which you can use for generate a random house. If you'll press a <strong>&quot;Generate Random&quot; button</strong>, <strong>House Generator</strong> will make a seed from a current system time and will use it for make a random house. You'll also notice that new seed was write into <strong>&quot;Seed&quot; field</strong> below. You can reuse this seed later for make an absolute the same house.</p>
+<p><strong>&quot;Generate from seed&quot; button</strong> using for generate a house from your own seed number. You can use any number, just try :3
+And also here has a <strong>&quot;Hide Ceiling&quot; checkbox</strong>. Uncheck it and press some generate button if you want to see a ceiling in your new cozy house ^_~.</p>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p><strong>ExampleSceneUI:</strong> shows how you can use a <a class="xref" href="../components_overview/house_generator.html"><strong>house generator</strong></a>. This object contains UGUI next sub objects:</p>
+<ul>
+<li><strong>GenerateRandom:</strong> this button sends a press call to <em>ExampleSceneUI</em>. If you prees this button in game mode, <em>ExampleSceneUI</em> will call a <em>GenerateRandom() function</em> from <em>HouseGenerator</em>, after what <em>HouseGenerator</em> will make a new random house.</li>
+<li><strong>GenerateFromSeed:</strong> this button works like a <em>GenerateRandom button</em>, but instead of <em>GenerateRandom() function</em> it calls a <em>GenerateFromSeed() function</em>, and seed will get from a <em>Seed UI text field</em>.</li>
+<li><strong>Seed:</strong> this is a UI text field, which contains a seed number. If you'll press a <em>GenerateRandom button</em>, HouseGenerator also will generate a seed number, and <em>ExampleSceneUI</em> will get this number and write it in this field, but if you'll press a <em>GenerateFromSeed button</em>, <em>HouseGenerator</em> will use a seed number from this field and will use it for generate a house.</li>
+<li><strong>HideCeiling:</strong> This is checkbox, which allows to hide a ceiling for generated house.</li>
+</ul>
+<h2 id="package-structure">Package structure</h2>
+<ul>
+<li><strong>Editor:</strong> This folder contains inspector scripts and graphics which provide controlling of generating.</li>
+<li><strong>Scripts:</strong> This folder contains the Cozy House scripts.</li>
+<li><strong>Examples:</strong> This folder contains all the optional example content that is meant to demonstrate the usage of Cozy House. This entire folder can be deleted if you don’t need it.</li>
+<li><strong>Materials:</strong> This folder contains materials.</li>
+<li><strong>Models:</strong> This folder contains models.</li>
+<li><strong>Prefabs:</strong> This folder contains prefabs.</li>
+<li><strong>Textures:</strong> This folder contains textures</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

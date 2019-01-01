@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How does it works? </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How does it works? ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="how-does-it-works">How does it works?</h2>
+
+<p><strong>Cozy House</strong> разделяет генерацию дома на два этапа: создание <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>чертежа</strong></a> и постройка дома по <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>чертежу</strong></a>. Компонент <a class="xref" href="../components_overview/house_generator.html"><strong>HouseGenerator</strong></a> решает обе эти задачи. Для запуска генерации можно использовать кнопки <strong>GenerateFromSEED</strong> и <strong>GenerateFromRandomSEED</strong> в инспекторе компонента, либо вызвав функцию <strong>Generate()</strong> или <strong>GenerateRandom()</strong>. После этого <a class="xref" href="../components_overview/house_generator.html"><strong>HouseGenerator</strong></a> запустит генерацию дома, состоящую из следующих шагов:</p>
+<ol>
+<li>Создание сетки ячеек по размеру, указанному в <a class="xref" href="../components_overview/house_generator.html"><strong>HouseGenerator</strong></a>.</li>
+<li>Создание <strong>Random</strong> объекта на основе <strong>seed</strong>, который будет использоваться для получения случайных данных для генерации.</li>
+<li>Создание <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Raw Blueprint</strong></a> при помощи <strong>Random</strong> объекта.</li>
+<li>Обработка <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Raw Blueprint</strong></a> при помощи <a class="xref" href="../components_overview/house_generator.html#pipeline"><strong>Pipeline</strong></a>.</li>
+<li>Получившийся результат <a class="xref" href="../components_overview/house_generator.html#house-requirements"><strong>проверяется на соответствие требованиям к дому</strong></a>, если требования не удовлетворены, генерация чертежа запускается заново.</li>
+<li>Создание дома в Unity на основе <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Blueprint</strong></a>.</li>
+</ol>
+<p>Наиболее интересной особенностью <strong>Cozy House</strong> является тот факт, что процесс генерации полностью детерминирован, и вы можете использовать <strong>Seed</strong> для передачи сгенерированного дома между клиентами в мультиплеере или для сохранения дома при сохранении игры.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

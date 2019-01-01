@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Prop </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Prop ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="prop">Prop</h1>
+
+<p>Этот scriptable object обеспечивает создание объектов мебели во время генерации дома.
+Он содержит информацию об типе пропа, ссылку на префаб, данные об положении внутри ячейки и список требований к пространству вокруг ячейки.
+Чтобы использовать проп, добавьте  этот проп в <a class="xref" href="interior.html#parameters"><strong>список пропов в интерьере</strong></a>,  для которого этот проп лучше всего подходит. Например, унитаз подходит только для туалета, но стол можно добавить в интерьер как кухни, так и гостинной.</p>
+<p><img src="..%5Cimages%5Cprop_header.png" alt="Prop header"></p>
+<p><br><br></p>
+<h2 id="how-to-setup-it">How to setup it?</h2>
+<p>Для настройки пропа используются следующие панели:</p>
+<h4 id="general">General</h4>
+<p><img src="..%5Cimages%5Cprop_general.png" alt="Prop general"></p>
+<p><strong>Type:</strong> тип пропса. Используется для того чтобы помочь пропсам находить рядом пропсы нужного им типа. Если ваш пропс не соответствует ни одному существующему типу, вы можете добавить свой собственный в <a class="xref" href="../api/Generator.Scripts.Core.DataTypes.Enums.PropsType.html"><strong>PropsType.cs</strong></a>, который находится в директории <em>...Assets\Generator\Scripts\Core\DataTypes\Enums</em></p>
+<pre><code class="lang-c#">namespace Generator.Scripts.Core.DataTypes.Enums
+{   ///////////////////////////////////////////////////////////////////////////////////////
+    /// &lt;summary&gt;  The type of props  &lt;/summary&gt;       	////////////////////////////////////////////////////////////////////////////////////
+    [Serializable]
+    public enum PropsType
+    {
+        None , // Custom name for &quot;Nothing&quot; option
+        Chair          = 1 &lt;&lt; 0 ,
+        Sofa           = 1 &lt;&lt; 1,
+        Table          = 1 &lt;&lt; 2,
+        Toilet         = 1 &lt;&lt; 3,
+        Fridge         = 1 &lt;&lt; 4,
+        KitchenWall    = 1 &lt;&lt; 5,
+        Chandelier     = 1 &lt;&lt; 6,
+        Stove          = 1 &lt;&lt; 7,
+        Bed            = 1 &lt;&lt; 8,
+        Cupboard       = 1 &lt;&lt; 9,
+        Nightstand     = 1 &lt;&lt; 10,
+        SofaCorner     = 1 &lt;&lt; 11,
+        MedicineChest  = 1 &lt;&lt; 12,
+        ShowerBath     = 1 &lt;&lt; 13,
+        WashBasin      = 1 &lt;&lt; 14
+    }
+}
+</code></pre>
+<p><strong>Prefab:</strong> ссылка на префаб пропса, который будет инстанциирован.</p>
+<p><br><br></p>
+<h4 id="origin-position">Origin Position</h4>
+<p>При генерации дома пропсы будут инстанциированы внутри Cell -&gt; PropsContainer с локальной позицией и локальным поворотом, указанными в этой панели. Далее проп доворачивается в ту сторону, которая указана в поле <strong>Prop Direction</strong> в панели <strong>Place Requirements</strong>. Если проп при инстанциировании повернут в неправильную сторону, попробуйте изменить значения поворота в этой панели.</p>
+<p><img src="..%5Cimages%5Cprop_origin_position_header.png" alt="Prop origin position header"></p>
+<p>Для удобства настройки поворота здесь также находится поле <strong>Target</strong> и кнопка <strong>Clone Position Info</strong>. Предполагается, что вы поместитье экземпляр пропс в это поле, после чего поместите этот проп в <strong>Props Container</strong> внутри ячейки, и будете поворачивать проп до тех пор, пока не получите удовлетворительный результат. Пример данной манипуляции показан ниже.</p>
+<p><img src="..%5Cimages%5Cprop_origin_position.gif" alt="Prop Origin Position"></p>
+<p><br><br></p>
+<h4 id="place-requirements">Place Requirements</h4>
+<p>Эта панель содержит информацию о том, каким должно быть пространство вокруг пропа.</p>
+<p><img src="..%5Cimages%5Cpossible_places_header.png" alt="Possible places header"></p>
+<p><strong>Possible places for placing props:</strong>  Это список, содержащий описания того, каким может быть пространство вокруг пропа. Если пространство вокруг пропа соотвуетствует одному из описаний, проп будет инстанциирован. Для добавления нового описания нажмите + в правом нижнем углу. Также вы можете скопировать уже существующее описание. Для настройки описания просто нажмите на него, и снизу появится панель настройки.</p>
+<p><img src="..%5Cimages%5Crequirement_settings.png" alt="Requirement settings"></p>
+<p><img src="..%5Cimages%5Crequirements_ingame.png" alt="Requirements ingame"></p>
+<p>Фактически эта панель схематично отображает то, каким должно быть пространство вокруг пропа.
+На изображении выше вы можете видеть как выглядит схематичное описание пространства и его реальное отображение.</p>
+<p>Для настройки описания пространства вокруг пропса просто нажмите на ячейку и используйте панель настройки ячейки, показанную ниже.
+Эта панель состоит из следующих элементов:</p>
+<p><img src="..%5Cimages%5Ccell_state.png" alt="Cell State"></p>
+<ul>
+<li><p><strong>State:</strong> состояние ячейки. Возможные состояния:</p>
+<ul>
+<li><p><strong>Any:</strong>  означает, что данная ячейка может иметь любое состояние и не будет проверяться при 	генерации.</p>
+</li>
+<li><p><strong>Floor:</strong> означает, что данная ячейка принадлежит любой комнате и может иметь любой проп либо не иметь его вовсе.</p>
+</li>
+<li><p><strong>Another Prop:</strong> означает, что данная ячейка должна иметь один из указанных пропов.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>При выборе состояния <strong>Another Prop</strong> вам будет доступна настройка <strong>Possible Props</strong>, в которой вы можете указать, какие виды пропов могут быть на этом месте.</p>
+</div>
+</li>
+<li><p><strong>Prop Zone:</strong> эта ячейка перекрывается current пропом.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>При выборе состояния <strong>Prop Zone</strong>, или если вы выбрали центральную ячейку, вам будет доступна настройка <strong>Prop Direction</strong>, которая указывает, в каком направлении должен быть повернут проп после интсанциирования.</p>
+</div>
+</li>
+<li><p><strong>Outside Of The Room:</strong> эта ячейка находится за пределами комнаты, она может быть как частью другой комнаты, так и вовсе быть за пределами дома.</p>
+</li>
+</ul>
+<p>При выборе любого состояния, отличного от Prop, открывается панель настройки стен.</p>
+</li>
+</ul>
+<p><img src="..%5Cimages%5Ccell_walls.png" alt="Cell walls"></p>
+<p>Эта панель содержит перечень стен, которые могут быть вокруг ячейки.</p>
+<p>Стена может быть следующих видов:</p>
+<ul>
+<li><strong>Nothing:</strong> означает, что на этом месте не должно быть стены</li>
+<li><strong>Any:</strong> озачает, что эта стена может иметь любое состояние, включая <strong>Nothing</strong>, следовательно она не проверяется при генерации.</li>
+<li><strong>Wall:</strong> это просто стена.</li>
+<li><strong>Door:</strong> просто дверь.</li>
+<li><strong>Window:</strong> просто окно.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<blockquote>
+<p>Обратите внимание, что вы можете комбинировать сразу несколько видов стен!</p>
+</blockquote>
+</div>
+<p><br><br></p>
+<h2 id="example">Example</h2>
+<p>Пример ниже показывает, как изменить требования к ячейке так, чтобы кухонный шкаф не устанавливался там, где есть двери справа и слева.</p>
+<p><img src="..%5Cimages%5Cprop_place_requirements_example.gif" alt="Prop Place Requirements example"></p>
+<p><br><br></p>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p>Установкой пропсов управляет <a class="xref" href="../api/Generator.Scripts.Core.Pipes.PlaceProps.html"><strong>Place Props pipe</strong></a>, во время генерации он обращается к <a class="xref" href="house_generator.html#interiors"><strong>интерьерам, указанным в HouseGenerator</strong></a>, после чего <a class="xref" href="interior.html"><strong>интерьеры</strong></a> вызывают во всех доступных им пропсах функцию TryToPlace(Blueprint blueprint, int roomId), проп ищет внутри <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>blueprint</strong></a> все ячейки с указанным roomId, и если пространство вокруг ячейки соответствует требованиям, к этой ячейке приписывается этот проп. Во время постройки дома <a class="xref" href="house_generator.html"><strong>HouseGenerator</strong></a> просто считывает из <a class="xref" href="../api/Generator.Scripts.Core.BlueprintCell.html"><strong>blueprint cell</strong></a> данные о пропе и инстанциирует его.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

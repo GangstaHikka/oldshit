@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sub Prop overview </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Sub Prop overview ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sub-prop-overview">Sub Prop overview</h1>
+
+<p><strong>Sub Prop</strong> компонент позволяет поворачивать, двигать или выключать объект случайным образом.</p>
+<p><img src="..%5Cimages%5Csub_prop_header.png" alt="Sub Prop Header"></p>
+<h2 id="how-to-use-it">How to use it?</h2>
+<p>Компонент используется автоматически, однако для работы на родительском объекте должен быть компонент PropRandomizer.</p>
+<h2 id="how-to-setup-it">How to setup it?</h2>
+<p>Для настройки Sub Prop используются следующие панели:</p>
+<h3 id="general">General</h3>
+<p>Основные настройки.</p>
+<p><strong>Chance to place</strong> - процент, определяющий вероятность включения объекта.</p>
+<p><img src="..%5Cimages%5Csub_prop_chance_to_place.gif" alt="Sub Prop Chance to place"></p>
+<h3 id="default-transform">Default Transform</h3>
+<p>Эта настройка указывает начальное положение и начальный поворот объекта. Смещение объекта происходит относительно этого положения.</p>
+<p><strong>Set current transform as default</strong> button - записывает текущее положение и поворот объекта в соответствующие поля.</p>
+<p><img src="..%5Cimages%5Csub_prop_set_default_transform.gif" alt="Sub Prop Set default transform"></p>
+<blockquote>
+<p>Обратите внимание, что если переключатель <strong>Add random position offset</strong> не включен, то <strong>Default Position</strong> не будет использован, и если <strong>Add random rotation offset</strong> также не будет включен, <strong>Default Rotation</strong> также не будет использован.</p>
+</blockquote>
+<h3 id="offset">Offset</h3>
+<p>Эта настройка позволяет указать пределы случайного смещения объекта.</p>
+<p><strong>Add random position offset:</strong> добавляет случайное смещение по осям X и Y. При генерации величина смещения выбирается случайно в промежутке между минимальным и максимальным значениями.</p>
+<ul>
+<li><strong>Min X pos offset:</strong> минимальная величина смещения по оси X.</li>
+<li><strong>Max X pos offset:</strong> максимальная величина смещения по оси X.</li>
+<li><strong>Min Y pos offset:</strong> минимальная величина смещения по оси Y.</li>
+<li><strong>Max Y pos offset:</strong> максимальная величина смещения по оси Y.</li>
+</ul>
+<blockquote>
+<p>Смещение позиции указывается в сантиметрах.</p>
+</blockquote>
+<p><img src="..%5Cimages%5Csub_prop_add_random_pos_offset.gif" alt="Sub Prop add random pos offset"></p>
+<p><strong>Add random rotation offset:</strong> добавляет случайный поворот. При генерации величина поворота выбирается случайно в промежутке между минимальным и максимальным значениями.</p>
+<ul>
+<li><p><strong>Min rotation offset:</strong> минимальная величина поворота.</p>
+</li>
+<li><p><strong>Max rotation offset:</strong> максимальная величина поворота.</p>
+</li>
+</ul>
+<blockquote>
+<p>Поворот указывается в градусах.</p>
+</blockquote>
+<p><img src="..%5Cimages%5Csub_prop_add_random_rot.gif" alt="Sub Prop add random rot"></p>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p>После вызова функции Randomize() вычисляет и применяет случайное смещение положения и случайный поворот в указанных в настройках пределах.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

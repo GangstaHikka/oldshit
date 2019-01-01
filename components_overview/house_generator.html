@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>House Generator </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="House Generator ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="house_generator">
+<h1 id="house-generator">House Generator</h1>
+
+<p>Это главный компонент, ответственный за генерацию дома.</p>
+<p><img src="..%5Cimages%5Chouse_generator_header.png" alt="House Generator header"></p>
+<p><br><br></p>
+<h2 id="how-to-use-it">How to use it?</h2>
+<p>Есть несколько способов использовать <strong>House Generator</strong>:</p>
+<ol>
+<li><p>При помощи панели <strong>Generate</strong>. Эта панель включает поле <strong>Seed</strong>, кнопку <strong>Generate from SEED</strong> и кнопку <strong>Generate from random SEED</strong>. Нажатие одной из кнопок запустит генерацию дома. <strong>House Generator</strong> использует для генерации специальное число, называемое <strong>Seed</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A <strong>random seed</strong> (or <strong>seed state</strong>, or just <strong>seed</strong>) is a <a href="https://en.wikipedia.org/wiki/Number">number</a> (or <a href="https://en.wikipedia.org/wiki/Array_data_structure">vector</a>) used to <a href="https://en.wikipedia.org/wiki/Initial_condition">initialize</a> a <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number generator</a>.</p>
+<p>For a seed to be used in a pseudorandom number generator, it does not need to be random. Because of the nature of number generating algorithms, so long as the original seed is ignored, the rest of the values that the algorithm generates will follow <a href="https://en.wikipedia.org/wiki/Probability_distribution">probability distribution</a> in a pseudorandom manner.</p>
+<p>Wikipedia</p>
+</div>
+<p>Так как используя одно и то же число <strong>seed</strong> мы всегда будем получать один и тот же результат, существует кнопка <strong>Generate from random SEED</strong>, которая перед запуском генерации дома генерирует псевдослучайное число <strong>seed</strong> на основе системного времени.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Также крайне полезным свойством <strong>seed</strong> является тот факт, что вы можете использовать его для хранения и передачи дома. Это может быть полезно в мультиплеерных играх, т.к. для того чтобы передать клиенту сгенерированный на сервере дом вам достаточно лишь передать число <strong>seed</strong>, а клиент уже сам сгенерирует на его основе абсолютно аналогичный дом.</p>
+</div>
+<p><img src="..%5Cimages%5Chouse_generator_generate_from_seed.gif" alt="House Generator generate from Seed"></p>
+<p><img src="..%5Cimages%5Chouse_generator_generate_from_random_seed.gif" alt="House Generator generate from Random Seed"></p>
+</li>
+<li><p>Вызвав на компоненте House Generator функцию <strong>Generate()</strong>, <strong>Generate(int seed)</strong> или <strong>GenerateWithRandomSeed()</strong>. Работает также как панель Generate.</p>
+<pre><code class="lang-c#">public class ExampleSceneUI : MonoBehaviour
+{
+    public InputField     seed;
+    public HouseGenerator houseBuilder;
+    public Toggle         hideCeiling;
+
+    private void Start()
+    {
+        hideCeiling.isOn = houseBuilder.hideCeiling;
+        hideCeiling.onValueChanged.AddListener(delegate(bool hide) { houseBuilder.hideCeiling = hide; });
+    }
+
+    public void GenerateRandom()
+    {
+        houseBuilder.GenerateWithRandomSeed();
+        seed.text = houseBuilder.seed.ToString();
+    }
+
+    public void GenerateFromSeed()
+    {
+        int.TryParse(seed.text, out houseBuilder.seed);
+        houseBuilder.Generate();
+    }
+}
+</code></pre>
+</li>
+<li><p>При помощи панели <strong>Example Generator UI</strong>.</p>
+<p><img src="..%5Cimages%5Chouse_generator_game_ui.gif" alt="House Generator generate game example ui"></p>
+</li>
+</ol>
+<p><br><br></p>
+<h2 id="how-to-setup-it">How to setup it?</h2>
+<p>Для настройки генерации используются следующие панели:</p>
+<h4 id="pipeline">Pipeline</h4>
+<p>Эта панель содержит перечень <a class="xref" href="../api/Generator.Scripts.Core.Pipes.html"><strong>труб</strong></a>, используемых для обработки <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>чертежа дома</strong></a>. Порядок труб имеет значение. При помощи галочки справа вы можете включать или выключать трубы по желанию. Также вы можете добавлять новые трубы, убрать уже имеющиеся или написать свои собственные.</p>
+<p><img src="..%5Cimages%5Chouse_generator_pipes_demonstration.gif" alt="House Generator pipes demonstration"></p>
+<p><br><br></p>
+<h4 id="general-settings">General Settings</h4>
+<p><img src="..%5Cimages%5Chouse_generator_general_settings.png" alt="HouseGenerator General settings"></p>
+<p>Здесь содержатся основные настройки HouseGenerator:</p>
+<ol>
+<li><p><strong>Поле Cell Prefab</strong> - содержит префаб базовой ячейки дома. О том, что такое базовая ячейка и как её настроить написано в секции <a class="xref" href="cell.html"><strong>Cell Overview</strong></a>.</p>
+</li>
+<li><p><strong>Side Size</strong> - длина стороны сетки ячеек. Больше длина - больше площадь дома.</p>
+</li>
+<li><p><strong>Randomizer</strong> - влияет на Raw Blueprint, чем больше число, тем больше вероятность, что на месте ячейки будет сгенерирован пол. Если хотите нагляднее увидеть как это работает, выключите все Pipes и сгенерируйте пару домов, используя разные значения Randomizer.</p>
+</li>
+<li><p><strong>Hide Ceiling</strong> - указывает стоит ли скрыть крышу при генерации дома.</p>
+<p><img src="..%5Cimages%5Chouse_generator_general_settings.gif" alt="House Generator general settings"></p>
+</li>
+</ol>
+<p><br><br></p>
+<h4 id="house-requirements">House Requirements</h4>
+<p><img src="..%5Cimages%5Chouse_generator_house_requirements.png" alt="House Generator house requirements"></p>
+<p>Здесь описаны требования к сгенерированному дому. Если требования не будут удовлетворены, дом будет генерироваться заново до тех пор, пока не будет получен удовлетворительный результат, или не будет превышен лимит на регенерацию.</p>
+<ol>
+<li><strong>Min Room Count</strong> - минимальное колличество комнат в сгенерированном доме.</li>
+<li><strong>Max Generate Retry</strong> - лимит попыток заново сгенерировать дом.</li>
+</ol>
+<p><br><br></p>
+<h4 id="interiors">Interiors</h4>
+<p><img src="..%5Cimages%5Chouse_generator_interiors.png" alt="House Generator interiors"></p>
+<p>Содержит перечень интерьеров и дополнительные к ним настройки.</p>
+<ol>
+<li><strong>Faсade Material</strong> - материал для наружной стороны дома.</li>
+<li><strong>Facade Column Material</strong> - материал для колонн, которые находятся на наружной стороне дома.</li>
+<li><strong>Default Interior</strong> -  этот интерьер будет выбран, если другие не подошли.</li>
+<li><strong>Interiors</strong> - перечень интерьеров, которые будут использоваться для генерации дома. Порядок интерьеров имеет значение, если есть два интерьера с одинаковыми требованиями к комнате, то будет применён первый подошедший интерьер, если у него не исчерпан лимит использований. Подробнее об интерьерах описано в секции <a class="xref" href="interior.html"><strong>Interior Overview</strong></a>.</li>
+</ol>
+<p><br><br></p>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p>После вызова одной из функций <strong>Generate</strong>, <strong>HouseGenerator</strong> берёт <strong>seed</strong> число и на его основе создаёт <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Raw Blueprint</strong></a>. <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Raw Blueprint</strong></a> это сетка из булевых переменных, которые указывают на то должен ли на месте ячейки быть пол или там должна быть пустота. После этого получившийся <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Raw Blueprint</strong></a> отправляется на обработку в <a class="xref" href="house_generator.html#pipeline"><strong>Pipeline</strong></a>, где определяются комнаты, выстраивается более реалистичная геометрия комнат, устанавливается пол, стены, окна, мебель, подбирается подходящий интерьер итд, после чего <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Blueprint</strong></a> проверяется на соответствия требованиям, указанным в <strong>House Requirements</strong>. Если требования не удовлетворены, <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>Blueprint</strong></a> генерируется заново до тех пор, пока не будет получен требуемый результат, или не будет исчерпан лимит попыток. Далее на основе полученно <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>чертежа</strong></a> строится дом.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

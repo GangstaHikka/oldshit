@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cell Overview </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cell Overview ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="cell">
+<h1 id="cell-overview">Cell Overview</h1>
+
+<p><img src="..%5Cimages%5Ccell_header.png" alt="2018-12-08_19-36-14"></p>
+<p><strong>Cell</strong> это базовый компонент дома, который ответственен за постройку стен, пола, потолка и установку мебели внутри своих границ.</p>
+<p><br><br></p>
+<h2 id="how-does-it-works">How does it works?</h2>
+<p>После генерации <a class="xref" href="../api/Generator.Scripts.Core.Blueprint.html"><strong>чертежа для дома</strong></a>, <a class="xref" href="house_generator.html"><strong>HouseGenerator</strong></a> создаёт сетку из <a class="xref" href="../api/Generator.Scripts.Core.BlueprintCell.html"><strong>ячеек</strong></a> внутри своей иерархии и передаёт каждой ячейке <a class="xref" href="../api/Generator.Scripts.Core.DataTypes.BuildData.html"><strong>информацию для строительства</strong></a>. На основе полученной информации ячейка устанавливает стены, пол, потолок и мебель. Данные о мебели и материалах берутся из присвоенного ячейке <a class="xref" href="../api/Generator.Scripts.ScriptableObjects.InteriorSO.html"><strong>интерьера</strong></a>.</p>
+<p><br><br></p>
+<h2 id="how-to-configure-it">How to configure it?</h2>
+<p>Установка стен, пола, колонн и потолка производится путём включения и выключения соответствующих объектов. Поэтому для правильной работы необходимо указать ссылки на пол, потолок, стены и колонны внутри иерархии ячейки. Делается это в пункте Gameobject Links</p>
+<p><img src="..%5Cimages%5Ccell_configure.png" alt="2018-12-08_19-52-55"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Обратите внимание, что стены должны иметь компонент Wall, а также не забудьте указать ссылку на Props Container, это пустой объект, в который будет инстанциироваться экземпляр префаба пропса.</p>
+</div>
+<p>Для указания ссылки на объект просто перетащите его.</p>
+<p><img src="..%5Cimages%5Cgameobject_linking.gif" alt="Gameobject Linking"></p>
+<p><br><br></p>
+<h4 id="material-ids">Material ID's</h4>
+<p>Этот этап опционален. Material ID это id материала, который будет перезаписан при генерации. Информация о новом материале берётся из <a class="xref" href="../api/Generator.Scripts.ScriptableObjects.InteriorSO.html"><strong>интерьера</strong></a>, приписанного к данной ячейке.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Информацию о том, какой материал был приписан данной ячейке, вы можете узнать во вкладке Debug Info.</p>
+</div>
+<p><img src="..%5Cimages%5Cmaterial_id.png" alt="2018-12-08_20-46-57"></p>
+<p><img src="..%5Cimages%5Cmaterial_id_2.png" alt="2018-12-08_20-53-00"></p>
+<p><br><br></p>
+<h4 id="debug-info">Debug Info</h4>
+<p>Эта панель предоставляет информацию для отладки.</p>
+<p><img src="..%5Cimages%5Ccell_debug.png" alt="2018-12-08_21-08-57"></p>
+<ul>
+<li><strong>Coordinates:</strong> координаты сгенерированной ячейки по осям I и J.</li>
+<li><strong>Room id:</strong> id комнаты, к которой принадлежит ячейка.</li>
+<li><strong>Interior id:</strong> id присвоенного комнате интерьера.</li>
+<li><strong>Interior:</strong> ссылка на интерьер.</li>
+<li><strong>Props:</strong> ссылка на префаб пропса, который сгенерировался на ячейке.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

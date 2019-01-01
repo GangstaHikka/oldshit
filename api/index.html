@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="API Documentation ">
+    <meta name="generator" content="docfx 2.40.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="api_homepage">
+<h1 id="api-documentation">API Documentation</h1>
+
+<p>Эта страница содержит документацию к API.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Custom Inspector классы не задокументированы т.к. они меняются слишком часто. Если вы нуждаетесь в помощи при работе с этими классами - обратитесь на нашу страницу на форуме либо напишите нам на email.</p>
+</div>
+<h2 id="scripts">Scripts</h2>
+<ul>
+<li><strong>Core Folder:</strong>  this folder contains all internal functional of Pompei.</li>
+<li>
+<ul>
+<li><strong>DataTypes folder:</strong> contains data classes.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Pipes folder:</strong> contains pipes which determines blueprint generation process.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.Buffer.html"><strong>Buffer:</strong></a> uses for transfer some info between pipes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.DefineRooms.html"><strong>DefineRooms:</strong></a> finds cells which can be combined into rooms and set RoomID to them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.IGeneratorPipe.html"><strong>IGeneratorPipe:</strong></a> an interface which determine how must be a pipe.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.MakeRoomsSmoother.html"><strong>MakeRoomsSmoother:</strong></a> finds alliased room borders and makes them more squarrel.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.MakeThinRoomCellsWider.html"><strong>MakeThinRoomCellsWider:</strong></a> finds a room cells which too thin for looks normal and makes them wider.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.PlaceColumns.html"><strong>PlaceColumns:</strong></a> places columns.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.PlaceExternalDoors.html"><strong>PlaceExternalDoors:</strong></a> places external doors.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.PlaceInternalDoors.html"><strong>PlaceInternalDoors:</strong></a> places internal doors.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.PlaceProps.html"><strong>PlaceProps:</strong></a> get place requires from prop, finds correct place for prop and places them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.PlaceWalls.html"><strong>PlaceWalls:</strong></a> places walls on room borders.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.PlaceWindows.html"><strong>PlaceWindows:</strong></a> places windows.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.RemoveIsolatedRooms.html"><strong>RemoveIsolatedRooms:</strong></a> finds rooms which are outside from a house and removes them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.RemoveIsolatedVoids.html"><strong>RemoveIsolatedVoids:</strong></a> merges void cells with closest room.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.RemoveTooSmallRooms.html"><strong>RemoveTooSmallRooms:</strong></a> merges too small rooms with closest room.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Pipes.SetInteriors.html"><strong>SetInteriors:</strong></a> analyzes rooms and set a correct interior to them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Blueprint.html"><strong>Blueprint:</strong></a> instance of this class contains an info for building a house.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.BlueprintAnalyze.html"><strong>BlueprintAnalyze:</strong></a> uses for get an info from a blueprint.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.BlueprintCell.html"><strong>BlueprintCell:</strong></a>  the blueprint represent of HouseCell, which contains an info about walls, floor, ceiling and props.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.Convert.html"><strong>Convert:</strong></a> contains some data convertation methods.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.InteriorsData.html"><strong>InteriorsData:</strong></a> contains info about current house interior.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.Core.RND.html"><strong>RND:</strong></a> uses for get some random data.</li>
+</ul>
+</li>
+<li><strong>Examples Folder:</strong> this folder contains scripts for examples. This entire folder can be deleted if you don’t need it.</li>
+<li><strong>Scriptable Objects:</strong> this folder contains all scriptable objects which you can use for castomize generating process.</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.ScriptableObjects.InteriorSO.html"><strong>InteriorSO:</strong></a> contains interior info, like materials for walls, floor, ceiling, possoble propses etc.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><a class="xref" href="Generator.Scripts.ScriptableObjects.Prop.html"><strong>Prop:</strong></a> contains a prop info, like link to prefab, place requirements etc...</li>
+</ul>
+</li>
+<li><a class="xref" href="Generator.Scripts.HouseGenerator.html"><strong>HouseGenerator:</strong></a> this is the base house building script which uses for start blueprint generation, building a house from blueprint and for customize generating pipeline.</li>
+<li><a class="xref" href="Generator.Scripts.HouseCell.html"><strong>HouseCell:</strong></a> this is the base part of house, which contains walls, floor, ceiling and props.</li>
+<li><a class="xref" href="Generator.Scripts.PropRandomizer.html"><strong>PropRandomizer:</strong></a> this is an optional component for prop prefab, which sends &quot;start castomize&quot; call of all child objects which contains SubProp component.</li>
+<li><a class="xref" href="Generator.Scripts.SubProp.html"><strong>SubProp:</strong></a> this is an optional component for some internal part of prop, which determines how must castomize the prop.</li>
+<li><a class="xref" href="Generator.Scripts.Wall.html"><strong>Wall:</strong></a> this is a part of HouseCell, which contains all wall functional.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
